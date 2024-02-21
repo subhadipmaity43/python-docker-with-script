@@ -14,7 +14,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on date
-      - docker tag docker-python-app-demo subhadipmaity123/python-docker-with-script:latest
+      - docker tag python-docker-with-script subhadipmaity123/python-docker-with-script:latest
       - docker login -u subhadipmaity123 -p Subha@123
       - echo Pushing the Docker image to Docker Hub...
       - docker push subhadipmaity123/python-docker-with-script:latest
