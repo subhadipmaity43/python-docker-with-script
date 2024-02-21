@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Docker Hub...
+
+  build:
+    commands:
+      - echo Build started on date
+      - echo Building the Docker image using Docker Compose...
+      - docker-compose build
+
+  post_build:
+    commands:
+      - echo Build completed on date
+      - docker tag docker-python-app-demo subhadipmaity123/python-docker-with-script:latest
+      - docker login -u subhadipmaity123 -p Subha@123
+      - echo Pushing the Docker image to Docker Hub...
+      - docker push subhadipmaity123/python-docker-with-script:latest
+
+artifacts:
+  files:
+    - "**/*"
